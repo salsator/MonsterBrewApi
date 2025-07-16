@@ -40,7 +40,7 @@ public class MagicItem extends BasicEntity {
     private String rarityCustom;
 
     @NotNull
-    private boolean Attunement;
+    private boolean attunement;
 
     @Min(value = 0)
     private int price;
@@ -48,7 +48,8 @@ public class MagicItem extends BasicEntity {
     @Column(nullable = true)
     private Long createdByUser;
 
-    @OneToMany(mappedBy = "magic_item_tags", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "magicItem", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Tag> tags = new ArrayList<>();
+
 
 }

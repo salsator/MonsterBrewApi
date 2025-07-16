@@ -2,6 +2,7 @@ package cz.beavergame.MonsterBrew.service.impl;
 
 import cz.beavergame.MonsterBrew.dto.MagicItemDto;
 import cz.beavergame.MonsterBrew.entity.MagicItem.MagicItem;
+import cz.beavergame.MonsterBrew.enums.MagicItem.Rarity;
 import cz.beavergame.MonsterBrew.filter.MagicItemFilter;
 import cz.beavergame.MonsterBrew.repository.MagicItem.MagicItemRepository;
 import cz.beavergame.MonsterBrew.service.MagicItemService;
@@ -36,6 +37,13 @@ public class MagicItemServiceImpl implements MagicItemService {
     @Override
     public MagicItemDto create(MagicItemDto dto) {
         MagicItem item = fromDto(dto);
+
+
+        if (dto.rarity() != Rarity.OTHER) {
+            item.setRarityCustom(null);
+        }
+
+
         return toDto(repository.save(item));
     }
 

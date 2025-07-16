@@ -11,6 +11,8 @@ public class Tag {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "name_id")
+    @JoinColumn(name = "magic_item_id")
     private MagicItem magicItem;
+
+
 }

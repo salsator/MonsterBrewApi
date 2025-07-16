@@ -2,6 +2,7 @@ package cz.beavergame.MonsterBrew.repository.MagicItem;
 
 import cz.beavergame.MonsterBrew.entity.MagicItem.MagicItem;
 import cz.beavergame.MonsterBrew.enums.MagicItem.Rarity;
+import cz.beavergame.MonsterBrew.enums.MagicItem.Type;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
@@ -13,10 +14,10 @@ public interface MagicItemRepository extends JpaRepository<MagicItem, Long>, Jpa
 
     List<MagicItem> findByRarity(Rarity rarity);
 
-    List<MagicItem> findByTyp(String typ);
+    List<MagicItem> findByType(Type type);
 
     List<MagicItem> findByAttunement(boolean attunement);
 
-    List<MagicItem> findByTagsIn(List<String> tags);
+    List<MagicItem> findByTagsIn(List<Type> tags);
 
 }
